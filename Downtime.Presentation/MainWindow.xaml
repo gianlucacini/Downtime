@@ -1,0 +1,91 @@
+﻿<ui:FluentWindow x:Class="Downtime.Presentation.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+        xmlns:local="clr-namespace:Downtime.Presentation" 
+        xmlns:windows="clr-namespace:Downtime.Presentation.ViewModel.Windows" d:DataContext="{d:DesignInstance Type=windows:MainWindowViewModel}"
+        mc:Ignorable="d"
+        WindowBackdropType="Acrylic"
+        WindowCornerPreference="Round"
+        WindowStartupLocation="CenterScreen"
+        Title="MainWindow" Height="450" Width="450">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <ui:TitleBar
+          x:Name="TitleBar"
+          Title="AppTitle"
+          Grid.Row="0"
+          Grid.ColumnSpan="2"
+          FontSize="18"
+          CloseWindowByDoubleClickOnIcon="True" />
+
+        <ui:Button 
+                Grid.Row="1"
+                Grid.ColumnSpan="2"
+                Width="100"
+                Margin="20"
+                HorizontalAlignment="Center"
+                Appearance="Primary"
+                FontSize="14"
+                Icon="{ui:SymbolIcon Symbol=XboxController16}"
+                x:Name="SelectApps_Button"
+                Content="Select"
+                Click="SelectApps_Button_Click" >
+
+        </ui:Button>
+
+        <ui:TextBlock Text="From" Grid.Row="2" Grid.Column="0" Margin="20 0"/>
+
+        <ui:TimePicker
+                Grid.Row="2"
+                Grid.Column="0"
+                Margin="20"
+                ClockIdentifier="Clock12Hour"
+                       x:Name="ToTimePicker"
+                       MinuteIncrement="5"
+                       Header="From"  />
+
+        <ui:TextBlock Text="To" Grid.Row="2" Grid.Column="1" Margin="20 0"/>
+
+        <ui:TimePicker 
+            Grid.Row="2"
+            Grid.Column="1"
+            Margin="20"
+            ClockIdentifier="Clock12Hour"
+            x:Name="FromTimePicker"
+            MinuteIncrement="5"
+            Header="To"  />
+
+        <ui:NavigationView 
+            MaxHeight="60"
+            IsPaneToggleVisible="False"
+            Grid.Row="3"
+            Grid.ColumnSpan="2"
+            PaneDisplayMode="Bottom"
+            x:Name="RootNavigation"
+            IsBackButtonVisible="Collapsed"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Bottom">
+
+            <ui:NavigationView.MenuItems >
+                <ui:NavigationViewItem Content="Dashboard" 
+                                       Icon="{ui:SymbolIcon Symbol=Home16}"
+                                      />
+
+                <ui:NavigationViewItem Content="Settings" Icon="{ui:SymbolIcon Symbol=Settings16}" />
+            </ui:NavigationView.MenuItems>
+        </ui:NavigationView>
+    </Grid>
+</ui:FluentWindow>

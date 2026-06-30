@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "UnplugSuite.Presentation3 (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "UnplugSuite.Presentation3 (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
